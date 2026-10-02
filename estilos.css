@@ -1,0 +1,863 @@
+
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050510;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   PANTALLA DE INICIO
+========================= */
+
+.pantalla-inicio {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.20),
+            rgba(0, 0, 0, 0.30)
+        ),
+        url("./imagenes/fondo-inicio.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 9999;
+
+    padding: 25px;
+}
+
+.contenido-inicio h1 {
+    font-size: clamp(38px, 6vw, 62px);
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 10px #ff005d,
+        0 0 20px #ff005d,
+        0 0 40px #0066ff;
+}
+
+.microfono {
+    font-size: 80px;
+    margin-bottom: 20px;
+
+    animation: flotar 2s ease-in-out infinite;
+}
+
+.texto-superior {
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: #ff3cac;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: lowercase;
+}
+.nombre-destacado {
+    font-family: 'Great Vibes', cursive;
+    font-size: 52px;
+    color: #ffffff;
+    margin-right: 8px;
+    text-shadow:
+        0 0 10px #ff005d,
+        0 0 20px #ff005d,
+        0 0 35px #0066ff;
+}
+
+.contenido-inicio h1 {
+    font-size: clamp(40px, 8vw, 80px);
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 10px #ff005d,
+        0 0 20px #ff005d,
+        0 0 40px #0066ff;
+}
+
+.subtitulo {
+    font-size: 20px;
+
+    margin-bottom: 35px;
+
+    color: #eaeaea;
+}
+
+#botonAbrir {
+    border: none;
+
+    padding: 18px 35px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    color: white;
+
+    background: linear-gradient(
+        90deg,
+        #ff005d,
+        #7a00ff,
+        #0077ff
+    );
+
+    box-shadow:
+        0 0 20px rgba(255, 0, 93, 0.5),
+        0 0 30px rgba(0, 119, 255, 0.4);
+
+    transition: 0.3s;
+}
+
+#botonAbrir:hover {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   INVITACIÓN
+========================= */
+
+.invitacion {
+    min-height: 100vh;
+
+    padding: 50px 20px 80px;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 0, 95, 0.25), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(0, 140, 255, 0.25), transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(130, 0, 255, 0.22), transparent 30%),
+        linear-gradient(180deg, #04040b, #090918, #050510);
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   EFECTO DE LUCES
+========================= */
+
+.luces::before,
+.luces::after {
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.35;
+
+    pointer-events: none;
+
+    animation: moverLuces 8s ease-in-out infinite alternate;
+}
+
+.luces::before {
+    background: #ff0062;
+
+    top: 10%;
+    left: -100px;
+}
+
+.luces::after {
+    background: #006eff;
+
+    bottom: 10%;
+    right: -100px;
+
+    animation-delay: 2s;
+}
+
+
+/* =========================
+   PORTADA
+========================= */
+
+.portada {
+    max-width: 800px;
+
+    margin: auto;
+    margin-bottom: 40px;
+
+    padding: 50px 20px;
+}
+
+.icono-musica {
+    font-size: 70px;
+
+    margin-bottom: 20px;
+
+    animation: flotar 2s ease-in-out infinite;
+}
+
+.estas-invitado {
+    font-size: 24px;
+    letter-spacing: 5px;
+    font-weight: bold;
+    color: #ff3cac;
+    margin-bottom: 15px;
+}
+
+.portada h2 {
+    font-size: clamp(54px, 9vw, 92px);
+    line-height: 1;
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 10px #ff005d,
+        0 0 25px #ff005d,
+        0 0 45px #005eff;
+}
+
+.frase {
+    font-size: 21px;
+
+    color: #dcdcdc;
+}
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+.tarjeta,
+.confirmacion,
+.contador-seccion {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 25px auto;
+
+    padding: 35px 25px;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.3);
+
+    transition: 0.3s;
+}
+
+.tarjeta:hover,
+.confirmacion:hover {
+    transform: translateY(-5px);
+}
+
+.icono {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.tarjeta h3,
+.confirmacion h3 {
+    margin-bottom: 12px;
+
+    letter-spacing: 3px;
+
+    color: #ff4fab;
+}
+
+.tarjeta p,
+.confirmacion p {
+    font-size: 20px;
+
+    color: #eeeeee;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   CUENTA REGRESIVA
+========================= */
+
+.contador-titulo {
+    font-size: 17px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+
+    color: #00c8ff;
+}
+
+.contador {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+.contador div {
+    padding: 20px 5px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.contador span {
+    display: block;
+
+    font-size: 35px;
+    font-weight: bold;
+
+    color: white;
+
+    text-shadow: 0 0 15px #008cff;
+}
+
+.contador small {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #bcbcbc;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.boton {
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-weight: bold;
+
+    padding: 16px 28px;
+
+    border-radius: 50px;
+
+    transition: 0.3s;
+
+    margin-top: 10px;
+}
+
+.boton:hover {
+    transform: scale(1.06);
+}
+
+.boton-mapa {
+    background: linear-gradient(
+        90deg,
+        #006eff,
+        #00b7ff
+    );
+
+    box-shadow:
+        0 0 20px rgba(0, 140, 255, 0.4);
+}
+
+.boton-whatsapp {
+    background: linear-gradient(
+        90deg,
+        #00b74a,
+        #25d366
+    );
+
+    box-shadow:
+        0 0 20px rgba(37, 211, 102, 0.35);
+}
+
+
+/* =========================
+   PIE DE PÁGINA
+========================= */
+
+footer {
+    margin-top: 50px;
+
+    padding-bottom: 40px;
+
+    color: #bbbbbb;
+
+    font-size: 17px;
+}
+
+footer .final {
+    margin-top: 15px;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: white;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flotar {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes moverLuces {
+
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(120px, 80px) scale(1.2);
+    }
+}
+
+
+/* =========================
+   DISEÑO PARA CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .pantalla-inicio {
+        padding: 18px;
+    }
+
+    .microfono {
+        font-size: 65px;
+    }
+
+    .subtitulo {
+        font-size: 17px;
+    }
+
+    #botonAbrir {
+        width: 100%;
+
+        max-width: 320px;
+    }
+
+    .portada {
+        padding: 35px 10px;
+    }
+
+    .frase {
+        font-size: 18px;
+    }
+
+    .tarjeta,
+    .confirmacion,
+    .contador-seccion {
+        padding: 28px 18px;
+    }
+
+    .contador {
+        gap: 6px;
+    }
+
+    .contador div {
+        padding: 15px 3px;
+    }
+
+    .contador span {
+        font-size: 26px;
+    }
+
+    .contador small {
+        font-size: 9px;
+    }
+
+    .boton {
+        width: 100%;
+
+        max-width: 330px;
+    }
+}
+/* =========================
+   BOTÓN DE MÚSICA
+========================= */
+
+.control-musica {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.55);
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    z-index: 1000;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 0 15px rgba(255,0,100,0.4);
+}
+/* =========================
+   GLOBOS
+========================= */
+
+#efectoGlobos,
+#efectoConfeti {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 2;
+}
+
+
+.globo {
+    position: absolute;
+
+    bottom: -120px;
+
+    width: 45px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    animation: subirGlobo linear forwards;
+
+    box-shadow:
+        inset -8px -10px 15px rgba(0,0,0,0.15);
+}
+
+
+.globo::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 58px;
+
+    width: 2px;
+    height: 60px;
+
+    background: rgba(255,255,255,0.7);
+
+    transform: translateX(-50%);
+}
+
+
+/* =========================
+   CONFETI
+========================= */
+
+.confeti {
+    position: absolute;
+
+    top: -20px;
+
+    width: 12px;
+    height: 18px;
+
+    opacity: 0.95;
+
+    animation: caerConfeti linear forwards;
+}
+
+
+/* =========================
+   SERPENTINAS
+========================= */
+
+.serpentina {
+    position: absolute;
+
+    top: -30px;
+
+    width: 10px;
+    height: 40px;
+
+    border-radius: 20px;
+
+    animation: caerConfeti linear forwards;
+}
+
+
+/* =========================
+   ANIMACIÓN GLOBOS
+========================= */
+
+@keyframes subirGlobo {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-120vh) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   ANIMACIÓN CONFETI
+========================= */
+
+@keyframes caerConfeti {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+.portada,
+.tarjeta,
+.confirmacion,
+.contador-seccion,
+footer {
+    position: relative;
+    z-index: 5;
+}
+/* =========================
+   SERPENTINAS DE FIESTA
+========================= */
+
+#serpentinasFiesta {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.serpentina-voladora {
+    position: absolute;
+
+    bottom: -80px;
+
+    width: 10px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    transform-origin: center;
+
+    animation: volarSerpentina 3.5s ease-out forwards;
+}
+
+
+/* Movimiento de las serpentinas */
+
+@keyframes volarSerpentina {
+
+    0% {
+        transform:
+            translate(0, 0)
+            rotate(0deg)
+            scale(0.5);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translate(
+                var(--movimiento-x),
+                -65vh
+            )
+            rotate(540deg)
+            scale(1);
+    }
+
+    100% {
+        transform:
+            translate(
+                var(--movimiento-x-final),
+                -110vh
+            )
+            rotate(1080deg)
+            scale(0.8);
+
+        opacity: 0;
+    }
+}
+.encabezado-inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+}
+
+
+/* NOMBRE STALIN PAUL */
+
+.nombre-destacado {
+    font-family: 'Great Vibes', cursive;
+
+    font-size: 72px;
+
+    line-height: 1;
+
+    color: #ffffff;
+
+    margin-bottom: 8px;
+
+    text-shadow:
+        0 0 8px #ff005d,
+        0 0 18px #ff005d,
+        0 0 35px #7a00ff;
+}
+
+
+/* TEXTO TE INVITA A */
+
+.te-invita {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    letter-spacing: 7px;
+
+    text-transform: uppercase;
+
+    color: #ff3cac;
+}
+@media (max-width: 600px) {
+
+    .pantalla-inicio {
+        background-position: center center;
+        background-size: cover;
+    }
+
+}
+.contenido-inicio {
+    max-width: 750px;
+
+    padding: 35px 40px;
+
+    border-radius: 30px;
+
+    background: rgba(0, 0, 20, 0.20);
+
+    backdrop-filter: blur(2px);
+
+    animation: aparecer 1.2s ease;
+}
+.after-office {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: #ff3cac;
+    text-transform: uppercase;
+}

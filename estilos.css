@@ -41,7 +41,7 @@ body {
             rgba(0, 0, 0, 0.20),
             rgba(0, 0, 0, 0.30)
         ),
-        url("./imagenes/fondo-inicio.png");
+        url("./imagenes/fondo-inicio-azul.png");
 
     background-size: cover;
     background-position: center;

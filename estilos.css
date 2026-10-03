@@ -861,3 +861,42 @@ footer {
     color: #ff3cac;
     text-transform: uppercase;
 }
+/* CALENDARIO OCTUBRE 8 */
+
+.calendario-personalizado {
+    width: 58px;
+    height: 62px;
+
+    margin: 0 auto 15px;
+
+    background: white;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.35),
+        0 0 20px rgba(0, 140, 255, 0.25);
+}
+
+.mes-calendario {
+    background: #ff3cac;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    padding: 5px 0;
+
+    letter-spacing: 1px;
+}
+
+.dia-calendario {
+    color: #222;
+
+    font-size: 29px;
+    font-weight: bold;
+
+    line-height: 37px;
+}
